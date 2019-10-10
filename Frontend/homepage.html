@@ -14,8 +14,8 @@
     </div>
 
     <div class="inputTask">
-        <form action="" onsubmit="return input()">
-            <input type="text" name="newtask" placeholder="enter new todo...">
+        <form action="/addTask" onsubmit="event.preventDefault(); return input()">
+            <input type="text" name="task" placeholder="enter new todo...">
             <button type="submit">Add task</button>           <!-- call the onClick function-->
         </form>
     </div>

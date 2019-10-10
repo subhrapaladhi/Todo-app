@@ -5,16 +5,25 @@ let input = ()=>{
     let newTask = $("form input").val();
 
     if(newTask!=''){
-        createTaskList(newTask);
+        // createTaskList(newTask);
         $("form input").val('');
+        $.post("http://127.0.0.1:3000/addWebinar",      //HERE -----------------------> send a post request to backend with the name of the new task
+                {
+                    task: newTask
+                },
+                (data,status)=>{
+                    if(data.save){
+                        getTaskList();
+                    }
+                }
+        )
     }
     
     return false            // the prevent the form from refreshing
 }
 
 let getTaskList = ()=>{
-
-    $.get("http://127.0.0.1:3000/home", (data, status) => {
+    $.get("http://127.0.0.1:3000/tasksList", (data, status) => {
         console.log(data);
         taskList = data.taskList;
         // taskList.push(task);
