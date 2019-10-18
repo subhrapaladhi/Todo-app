@@ -60,4 +60,31 @@ app.delete('/delete/:id', (req, res)=>{
         })
 })
 
+app.get('/details/:id',(req, res)=>{
+    res.sendFile(publicDir+'/Frontend/details.html')
+})
+
+app.get('/data/:id', (req, res)=>{
+    Task.findById(req.params.id)
+        .then((data)=>{
+            res.json(data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+})
+
+app.put('/update/:id', (req,res)=>{
+    Task.findByIdAndUpdate(req.params.id, {details:req.body.details},{new: true})
+            .then((data)=>{
+                console.log(data)
+                res.json(data)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+    console.log(req.body)
+})
+
+
 app.listen(3000, ()=>console.log("connected to port 3000"))

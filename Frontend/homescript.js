@@ -28,7 +28,7 @@ let getTaskList = ()=>{
 
         taskList.forEach((task,index)=>{
             console.log(task.task)
-            taskElement = `<li>${task.task}<button id=i${task._id}>Delete</button></li>`;
+            taskElement = `<li><span id=d${task._id}>${task.task}</span><button id=i${task._id}>Delete</button></li>`;
             $('.taskList ul').append(taskElement)
             console.log(task._id)
             $(`#i${task._id}`).click(()=>{
@@ -43,6 +43,10 @@ let getTaskList = ()=>{
                         }
                     }
                 })
+            })
+
+            $(`#d${task._id}`).click(()=>{
+                window.location.href = `http://127.0.0.1:3000/details/${task._id}`
             })
         })
     })
