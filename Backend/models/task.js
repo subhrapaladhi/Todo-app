@@ -1,6 +1,7 @@
 let mongoose = require('mongoose');
 
 let taskSchema = new mongoose.Schema({
+    username: String,
     task: String,
     details: String
 })

@@ -45,7 +45,4 @@ let addDetails = ()=>{
     return false
 }
 
-
-// initialize();
-
 showDetails();

@@ -2,7 +2,7 @@ let express     = require('express'),
     app         = express(),
     bodyParser  = require('body-parser'),
     mongoose    = require('mongoose'),
-    cors        = require('cors');
+    cors        = require('cors')
 
 app.use(cors())
 
@@ -18,16 +18,48 @@ mongoose.connection
         .on('error',(error)=>console.log('connection to database failed'))
 
 const Task = require('./models/task');
+const User = require('./models/user');
 
-app.get('/',(req,res)=> {
+app.get('/auth', (req,res)=>{
+    res.sendFile(publicDir+'/Frontend/login_signup.html')
+})
+
+app.post('/login', (req, res)=>{
+    User.findOne(req.body)
+        .then((data)=>{
+            if(data){
+                res.json({'auth': true});
+                console.log(data);
+            }else{
+                res.json({'auth': false});
+                console.log(`wrong username or password:`);  
+            }
+        })
+})
+
+app.post('/signup', (req,res) =>{
+    new User(req.body)
+        .save()
+        .then((data)=>{
+            res.json({save: true});
+            console.log(data);
+        })
+        .catch((err)=>{
+            res.json({save: false});
+            console.log(err);
+        })
+})
+
+app.get('/:username',(req,res)=> {
     res.sendFile(publicDir+'/Frontend/homepage.html')
 })
 
-app.get('/tasksList', (req,res)=> {
+app.get('/:username/tasksList', (req,res)=> {
 
-    Task.find({})
+    Task.find({username: req.params.username})
         .then((taskList)=>{
-            res.json({taskList:  taskList}); 
+            res.json({taskList:  taskList});
+            console.log(taskList) 
         })
         .catch((err)=>{
             console.log(err);
@@ -35,7 +67,8 @@ app.get('/tasksList', (req,res)=> {
         })
 })
 
-app.post('/addTask', (req,res)=>{
+app.post('/:username/addTask', (req,res)=>{
+    console.log(req.body)
     new Task(req.body)
         .save()
         .then((data)=>{
@@ -77,14 +110,13 @@ app.get('/data/:id', (req, res)=>{
 app.put('/update/:id', (req,res)=>{
     Task.findByIdAndUpdate(req.params.id, {details:req.body.details},{new: true})
             .then((data)=>{
-                console.log(data)
-                res.json(data)
+                console.log(data);
+                res.json(data);
             })
             .catch((err)=>{
-                console.log(err)
+                console.log(err);
             })
-    console.log(req.body)
+    console.log(req.body);
 })
-
 
 app.listen(3000, ()=>console.log("connected to port 3000"))

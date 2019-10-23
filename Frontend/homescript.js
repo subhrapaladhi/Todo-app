@@ -4,8 +4,11 @@ let input = ()=>{
     let newTask = $("form input").val();
     if(newTask!=''){
         $("form input").val('');
-        $.post("http://127.0.0.1:3000/addTask",
+        let username = window.location.href.slice('http://127.0.0.1:3000/'.length)
+        console.log(username)
+        $.post(`http://127.0.0.1:3000/${username}/addTask`,
                 {
+                    username: username,
                     task: newTask
                 },
                 (data,status)=>{
@@ -15,12 +18,12 @@ let input = ()=>{
                 }
         )
     }
-    
     return false            // the prevent the form from refreshing
 }
 
 let getTaskList = ()=>{
-    $.get("http://127.0.0.1:3000/tasksList", (data, status) => {
+    let username = window.location.href.slice('http://127.0.0.1:3000/'.length)
+    $.get(`http://127.0.0.1:3000/${username}/tasksList`, (data, status) => {
         console.log(data);
         taskList = data.taskList;
 
