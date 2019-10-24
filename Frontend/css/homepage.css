@@ -1,0 +1,91 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.head{
+    background: rgb(57, 147, 250);
+    padding: 1%;
+}
+
+.head h1{
+    text-align: center;
+    font-size: 350%;
+    margin-top: 1px;
+}
+.head h2{
+    text-align: center;
+    font-size: 250%;
+}
+
+/* -------------- */
+
+.inputTask{
+    width: 80%;
+    /* background: rgb(63, 68, 62); */
+    /* margin: 10% auto; */
+    border:5px solid rgb(65, 64, 64);
+    margin-left: 10%;
+    margin-top: 2.5%;
+    padding: 2%;
+}
+
+.inputTask input{
+    width: 50%;
+    margin-left: 25%;
+    border:3px solid rgb(161, 38, 38);
+}
+
+#addTaskbtn{
+    margin-left: 67.75%;
+    margin-top: 1.25%;
+}
+
+ul.list-group{
+    width: 50%;
+    margin-left: 25%;
+    list-style: none;
+    margin-top: 1%;
+    
+    padding: 0.5%;
+}
+
+div.taskList ul.list-group li{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+div.taskList ul.list-group li span{
+    float: left;
+    width: 85%;
+    border: 1px solid #dc3545;
+    border-radius: 0;
+    font-size: 150%;
+    padding: 0.75%;
+    background: rgb(65, 64, 64);
+    
+    color: #fff;
+    padding-left: 20px;
+}
+
+div.taskList ul.list-group li span:hover{
+    font-weight: 500;
+    color: #6ce000;
+}
+
+div.taskList ul.list-group li button{
+    width: 15%;
+    height: 50px;
+    font-size: 150%;
+    font-weight: 400;
+    border-radius: 0;
+    border: 4px solid #dc3545;
+    background: #dc3545;
+}
+
+div.taskList ul.list-group li button:hover{
+    color: #fff;
+}

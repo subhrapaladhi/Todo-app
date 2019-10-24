@@ -31,7 +31,7 @@ let getTaskList = ()=>{
 
         taskList.forEach((task,index)=>{
             console.log(task.task)
-            taskElement = `<li><span id=d${task._id}>${task.task}</span><button id=i${task._id}>Delete</button></li>`;
+            taskElement = `<li><span class="list-group-item" id=d${task._id}>${task.task}</span><button id=i${task._id}>Delete</button></li>`;
             $('.taskList ul').append(taskElement)
             console.log(task._id)
             $(`#i${task._id}`).click(()=>{

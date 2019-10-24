@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Frontend/css/homepage.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Todo</title>
 </head>
 <body>
@@ -15,14 +17,16 @@
 
     <div class="inputTask">
         <form action="" onsubmit="event.preventDefault(); return input()">
-            <input type="text" name="task" placeholder="enter new todo...">
-            <button type="submit">Add task</button>           <!-- call the onClick function-->
+            <input class="form-control" type="text" name="task" placeholder="enter new todo...">
+            <button id="addTaskbtn" type="submit" class="btn btn-primary">Add task</button>           <!-- call the onClick function-->
         </form>
     </div>
             
     <div class="taskList">
-        <ul></ul>                                                   <!-- the js file will send the task the user has input -->
+        <ul class="list-group">
+            <li><span class="list-group-item" id=d${task._id}>${task.task}</span><button class="btn btn-danger" id=i${task._id}>Delete</button></li>
+        </ul>                                                   <!-- the js file will send the task the user has input -->
     </div>
-    <script src="../Frontend/homescript.js"></script>
+    <script src="../Frontend/scripts/homescript.js"></script>
 </body>
 </html>

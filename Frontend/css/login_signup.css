@@ -1,0 +1,56 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.head{
+    background: rgb(57, 147, 250);
+    padding: 1%;
+}
+
+.head h1{
+    text-align: center;
+    font-size: 350%;
+    margin-top: 1px;
+}
+.head h2{
+    text-align: center;
+    font-size: 250%;
+}
+
+/* ------------------- */
+
+#logsign{
+    width: 80%;
+    margin: 5% auto;
+    height: 40%;
+    background: rgb(63, 68, 62);
+}
+
+#div1,#div2{
+    width: 40%;
+    float: left;
+    margin: 5%;
+}
+
+h3{
+    text-align: center;
+    color: rgb(255, 217, 0);
+}
+
+form#login input, 
+form#signup input{
+    border: 2px solid rgb(0, 119, 255);
+}
+
+form#login input, 
+form#login button,
+form#signup input, 
+form#signup button{
+    display: block;
+    margin: 3% auto;
+}
+

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Frontend/css/login_signup.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Todo</title>
 </head>
 <body>
@@ -12,17 +14,26 @@
         <h1>Todo &rarr; DONE!</h1>
         <h2>Never miss a task again</h2>
     </div>
-    <form id="login" onsubmit="event.preventDefault(); return login()">
-        <input type="text" name="username" id="l_username">
-        <input type="password" name="password" id="l_password">
-        <button type="submit">Login</button>
-    </form>
-    <div id="failmessage"></div>
-    <form id="signup" onsubmit="event.preventDefault(); return signup()">
-        <input type="text" name="username" id="s_username">
-        <input type="password" name="password" id="s_password">
-        <button type="submit">signup</button>
-    </form>
-    <script src="../Frontend/login_signup.js"></script>
+    <div id="logsign">
+        <div id="div1">
+            <h3>Login</h3>
+            <form id="login" onsubmit="event.preventDefault(); return login()">
+                <input type="text" name="username" id="l_username" class="form-control" placeholder="username">
+                <input type="password" name="password" id="l_password" class="form-control" placeholder="password">
+                <button type="submit" class="btn btn-warning">Login</button>
+            </form>
+            <div id="failmessage"></div>
+        </div>
+        <div id="div2">
+            <h3>Signup</h3>
+            <form id="signup" onsubmit="event.preventDefault(); return signup()">
+                <input type="text" name="username" id="s_username" class="form-control" placeholder="username">
+                <input type="password" name="password" id="s_password" class="form-control" placeholder="password">
+                <button type="submit" class="btn btn-warning">signup</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../Frontend/scripts/login_signup.js"></script>
 </body>
 </html>
